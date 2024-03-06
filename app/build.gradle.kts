@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.kapt")
+    id("org.jetbrains.kotlin.plugin.parcelize")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -33,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -44,7 +51,7 @@ dependencies {
     val okhttp = "4.9.0"
     val gson = "2.8.6"
     val dagger = "2.48"
-    val viewmodel = "2.3.0"
+    val viewmodel = "2.4.0"
     val coroutine = "1.4.2"
     val stetho = "1.5.1"
     val testCoreRunner = "1.2.0"
@@ -61,10 +68,13 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
+    implementation ("androidx.fragment:fragment-ktx:1.3.6")
 
-    implementation ("androidx.lifecycle:lifecycle-viewmodel:$viewmodel")
+
+
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:$viewmodel")
+
 
     //Retrofit2
     implementation ("com.squareup.retrofit2:retrofit:$retrofit")
@@ -78,8 +88,7 @@ dependencies {
 
     //Dagger
     implementation ("com.google.dagger:hilt-android:$dagger")
-
-   // kapt "com.google.dagger:hilt-android-compiler:$dagger"
+    kapt ("com.google.dagger:hilt-android-compiler:$dagger")
 
     //Coroutines
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine")
