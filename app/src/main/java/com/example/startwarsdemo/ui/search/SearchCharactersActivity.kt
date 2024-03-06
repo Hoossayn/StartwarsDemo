@@ -1,5 +1,6 @@
 package com.example.startwarsdemo.ui.search
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,8 @@ import com.example.startwarsdemo.data.common.onLoading
 import com.example.startwarsdemo.data.common.onSuccess
 import com.example.startwarsdemo.databinding.ActivitySearchCharactersBinding
 import com.example.startwarsdemo.domain.models.CharacterModel
+import com.example.startwarsdemo.ui.details.CharacterDetailsActivity
+import com.example.startwarsdemo.utils.CHARACTER_EXTRA
 import com.example.startwarsdemo.utils.ConnectionLiveData
 import com.example.startwarsdemo.utils.getTextChangeStateFlow
 import com.example.startwarsdemo.utils.hide
@@ -138,10 +141,10 @@ class SearchCharactersActivity : AppCompatActivity() {
     }
 
     private fun setOnCharacterClicked(characterModel: CharacterModel) {
-      /*  Intent(this, DetailsCharactersActivity::class.java).apply {
+        Intent(this, CharacterDetailsActivity::class.java).apply {
             putExtra(CHARACTER_EXTRA, characterModel)
             startActivity(this)
-        }*/
+        }
     }
 
     private fun setError(error: String?) {

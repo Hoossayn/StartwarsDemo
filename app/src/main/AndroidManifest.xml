@@ -17,10 +17,14 @@
         android:theme="@style/Theme.StartwarsDemo"
         tools:targetApi="31">
         <activity
+            android:name=".ui.details.CharacterDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.search.SearchCharactersActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -2,6 +2,7 @@ package com.example.startwarsdemo.di.component
 
 import com.example.startwarsdemo.di.module.NetworkModule
 import com.example.startwarsdemo.di.module.RepositoriesModule
+import com.example.startwarsdemo.ui.details.CharacterDetailsActivity
 import com.example.startwarsdemo.ui.search.SearchCharactersActivity
 import dagger.Component
 import javax.inject.Singleton
@@ -13,4 +14,5 @@ import javax.inject.Singleton
 interface AppComponent {
     fun inject(searchCharactersActivity: SearchCharactersActivity)
 
+    fun inject(detailsCharactersActivity: CharacterDetailsActivity)
 }
