@@ -88,7 +88,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
 
                 }.onError { error ->
                     showError(error)
-                    binding.progressCircular.show()
+                    binding.progressCircular.hide()
                 }.onLoading {
                     binding.progressCircular.show()
                 }
@@ -108,7 +108,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
                     binding.progressCircular.hide()
                 }.onError { error ->
                     showError(error)
-                    binding.progressCircular.show()
+                    binding.progressCircular.hide()
                 }.onLoading {
                     binding.progressCircular.show()
                 }
@@ -128,7 +128,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
 
                 }.onError { error ->
                     showError(error)
-                    binding.progressCircular.show()
+                    binding.progressCircular.hide()
                 }.onLoading {
                     binding.progressCircular.show()
                 }

@@ -65,6 +65,7 @@ class SearchCharactersActivity : AppCompatActivity() {
                 it.onSuccess { list ->
                     setListAdapter(list)
                 }.onError { error ->
+                    binding.progressCircular.hide()
                     when (error.messageResource){
                         is Int -> setError(getString(error.messageResource))
                         is ResponseBody? -> setError(error.messageResource?.string())
@@ -109,6 +110,7 @@ class SearchCharactersActivity : AppCompatActivity() {
         result.onSuccess { list ->
             setListAdapter(list)
         }.onError { error ->
+            binding.progressCircular.hide()
             when (error.messageResource) {
                 is Int -> setError(getString(error.messageResource))
                 is ResponseBody? -> setError(error.messageResource?.string())
