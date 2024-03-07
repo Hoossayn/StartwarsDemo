@@ -7,10 +7,10 @@ This side Project was initially a case study given to me as a challenge for an a
 
 # Screenshots
 <p align="center">
-  <img src="https://github.com/HamdiBoumaiza/Stars/blob/main/screenshots/Screenshot_1.jpg" width="200">
-  <img src="https://github.com/HamdiBoumaiza/Stars/blob/main/screenshots/Screenshot_2.jpg" width="200">
-  <img src="https://github.com/HamdiBoumaiza/Stars/blob/main/screenshots/Screenshot_3.jpg" width="200">
+  <img src="https://github.com/Hoossayn/StartwarsDemo/assets/35276272/c8b7a0e3-95ed-4b1e-97a7-2cb621541455" width="200">
+  
 </p>
+
 
 # Project Architecture
 ### Communication between layers
