@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.startwarsdemo.R
+import com.example.startwarsdemo.data.common.DataSourceException
 import com.example.startwarsdemo.data.common.StarWarsResult
 import com.example.startwarsdemo.data.common.onError
 import com.example.startwarsdemo.data.common.onLoading
@@ -66,6 +67,7 @@ class SearchCharactersActivity : AppCompatActivity() {
                     setListAdapter(list)
                 }.onError { error ->
                     binding.progressCircular.hide()
+                    showError(error)
                     when (error.messageResource){
                         is Int -> setError(getString(error.messageResource))
                         is ResponseBody? -> setError(error.messageResource?.string())
@@ -111,6 +113,7 @@ class SearchCharactersActivity : AppCompatActivity() {
             setListAdapter(list)
         }.onError { error ->
             binding.progressCircular.hide()
+            showError(error)
             when (error.messageResource) {
                 is Int -> setError(getString(error.messageResource))
                 is ResponseBody? -> setError(error.messageResource?.string())
@@ -154,5 +157,12 @@ class SearchCharactersActivity : AppCompatActivity() {
         binding.progressCircular.hide()
         binding.groupError.show()
         binding.tvError.text = error
+    }
+
+    private fun showError(error: DataSourceException) {
+        when (error.messageResource) {
+            is Int -> toast(getString(error.messageResource))
+            is ResponseBody? -> toast(error.messageResource!!.string())
+        }
     }
 }
