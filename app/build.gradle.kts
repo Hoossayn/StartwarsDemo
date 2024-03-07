@@ -43,72 +43,49 @@ android {
 }
 
 dependencies {
-    val coreKtx = "1.3.2"
-    val appCompact = "1.2.0"
-    val material = "1.3.0"
-    val constraintLayout = "2.0.4"
-    val retrofit = "2.9.0"
-    val okhttp = "4.9.0"
-    val gson = "2.8.6"
-    val dagger = "2.48"
-    val viewmodel = "2.4.0"
-    val coroutine = "1.4.2"
-    val stetho = "1.5.1"
-    val testCoreRunner = "1.2.0"
-    val espresso = "3.3.0"
-    val googleTruth = "1.0"
-    val barista = "3.7.0"
-    val androidxJunit = "1.1.2"
-    val junit = "4.13.2"
-    val androidxArchTest = "2.1.0"
-
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    implementation ("androidx.fragment:fragment-ktx:1.3.6")
-
-
-
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:$viewmodel")
+    implementation ("androidx.fragment:fragment-ktx:1.6.2")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
 
 
     //Retrofit2
-    implementation ("com.squareup.retrofit2:retrofit:$retrofit")
-    implementation ("com.squareup.retrofit2:converter-gson:$retrofit")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Okhttp3
-    implementation ("com.squareup.okhttp3:okhttp:$okhttp")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.0")
 
     //Gson
-    implementation ("com.google.code.gson:gson:$gson")
+    implementation ("com.google.code.gson:gson:2.8.6")
 
     //Dagger
-    implementation ("com.google.dagger:hilt-android:$dagger")
-    kapt ("com.google.dagger:hilt-android-compiler:$dagger")
+    implementation ("com.google.dagger:hilt-android:2.48")
+    kapt ("com.google.dagger:hilt-android-compiler:2.48")
 
     //Coroutines
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
 
     //Stetho
-    implementation ("com.facebook.stetho:stetho:$stetho")
-    implementation ("com.facebook.stetho:stetho-okhttp3:$stetho")
+    implementation ("com.facebook.stetho:stetho:1.5.1")
+    implementation ("com.facebook.stetho:stetho-okhttp3:1.5.1")
 
     debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.13")
 
     //TEST SUITE
-    androidTestImplementation ("androidx.test:runner:$testCoreRunner")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:$espresso")
-    androidTestImplementation ("androidx.test.ext:junit:$androidxJunit")
-    androidTestImplementation("com.schibsted.spain:barista:$barista")
+    androidTestImplementation ("androidx.test:runner:1.2.0")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
+    androidTestImplementation ("androidx.test.ext:junit:1.1.2")
 
-    testImplementation ("androidx.arch.core:core-testing:$androidxArchTest")
-    testImplementation ("junit:junit:$junit")
-    testImplementation ("com.google.truth:truth:$googleTruth")
-    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine")
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("com.google.truth:truth:1.0")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2")
 
 }
