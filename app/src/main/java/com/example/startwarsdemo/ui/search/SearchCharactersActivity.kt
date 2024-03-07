@@ -36,12 +36,11 @@ import okhttp3.ResponseBody
 @AndroidEntryPoint
 class SearchCharactersActivity : AppCompatActivity() {
 
-    private val viewModel : SearchCharactersViewModel by viewModels()
+    private val viewModel: SearchCharactersViewModel by viewModels()
 
     private lateinit var binding: ActivitySearchCharactersBinding
     private val linearLayoutManager by lazy { LinearLayoutManager(this) }
     private lateinit var charactersAdapter: CharactersAdapter
-
 
     @ExperimentalCoroutinesApi
     @FlowPreview
@@ -62,13 +61,13 @@ class SearchCharactersActivity : AppCompatActivity() {
 
     private fun initObserver() {
         lifecycleScope.launch {
-            viewModel.resultListCharacters.collect  {
+            viewModel.resultListCharacters.collect {
                 it.onSuccess { list ->
                     setListAdapter(list)
                 }.onError { error ->
                     binding.progressCircular.hide()
                     showError(error)
-                    when (error.messageResource){
+                    when (error.messageResource) {
                         is Int -> setError(getString(error.messageResource))
                         is ResponseBody? -> setError(error.messageResource?.string())
                     }
@@ -78,9 +77,7 @@ class SearchCharactersActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
-
 
     @FlowPreview
     @ExperimentalCoroutinesApi
@@ -101,11 +98,10 @@ class SearchCharactersActivity : AppCompatActivity() {
                     viewModel.searchCharacters(query)
                 }
                 .flowOn(Dispatchers.Default)
-                .collect {result ->
+                .collect { result ->
                     processResult(result)
                 }
         }
-
     }
 
     private fun processResult(result: StarWarsResult<List<CharacterModel>>) {

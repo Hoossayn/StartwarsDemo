@@ -15,17 +15,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchCharactersViewModel @Inject constructor(
-    private val searchCharactersUseCase: SearchCharactersUseCase
+    private val searchCharactersUseCase: SearchCharactersUseCase,
 ) : ViewModel() {
 
     private val _characters = MutableStateFlow<StarWarsResult<List<CharacterModel>>>(StarWarsResult.Loading)
-    val resultListCharacters :StateFlow<StarWarsResult<List<CharacterModel>>> = _characters
-     fun searchCharacters(input: String): Flow<StarWarsResult<List<CharacterModel>>> {
-         return flow<StarWarsResult<List<CharacterModel>>> {
-             searchCharactersUseCase(input).collect {
-                 _characters.emit(it)
-             }
-         }.flowOn(Dispatchers.IO)
-     }
-
+    val resultListCharacters: StateFlow<StarWarsResult<List<CharacterModel>>> = _characters
+    fun searchCharacters(input: String): Flow<StarWarsResult<List<CharacterModel>>> {
+        return flow<StarWarsResult<List<CharacterModel>>> {
+            searchCharactersUseCase(input).collect {
+                _characters.emit(it)
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 }

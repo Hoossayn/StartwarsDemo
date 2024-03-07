@@ -1,6 +1,5 @@
 package com.example.startwarsdemo.data.common
 
-
 import com.example.startwarsdemo.R
 import retrofit2.HttpException
 import java.io.IOException

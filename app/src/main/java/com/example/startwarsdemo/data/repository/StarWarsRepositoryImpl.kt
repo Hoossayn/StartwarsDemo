@@ -31,48 +31,48 @@ class StarWarsRepositoryImpl(private val starWarsDataSource: StarWarsDataSource)
     }
 
     override suspend fun getPlanet(planetUrl: String): Flow<StarWarsResult<PlanetModel>> =
-            flow {
-                starWarsDataSource.getPlanet(planetUrl).run {
-                    when (this) {
-                        is StarWarsResult.Success -> {
-                            data?.let { emit(StarWarsResult.Success(it.mapToDomainModel())) }
-                        }
-                        is StarWarsResult.Error -> {
-                            emit(StarWarsResult.Error(exception))
-                        }
-
-                        else -> {}
-                    }
-                }
-            }.onFlowStarts()
-
-    override suspend fun getSpecies(specieUrl: List<String>): Flow<StarWarsResult<List<SpecieModel>>> =
-            flow {
-                starWarsDataSource.getSpecies(specieUrl).run {
-                    when (this) {
-                        is StarWarsResult.Success -> {
-                            emit(StarWarsResult.Success(data.map { specie -> specie!!.mapToDomainModel() }))
-                        }
-                        is StarWarsResult.Error -> {
-                            emit(StarWarsResult.Error(exception))
-                        }
-
-                        else -> {}
-                    }
-                }
-            }.onFlowStarts()
-
-    override suspend fun getMovies(movieUrl: List<String>): Flow<StarWarsResult<List<MovieModel>>> =
-            flow {
-                when (val result = starWarsDataSource.getMovies(movieUrl)) {
+        flow {
+            starWarsDataSource.getPlanet(planetUrl).run {
+                when (this) {
                     is StarWarsResult.Success -> {
-                        emit(StarWarsResult.Success(result.data.map { movie -> movie!!.mapToDomainModel() }))
+                        data?.let { emit(StarWarsResult.Success(it.mapToDomainModel())) }
                     }
                     is StarWarsResult.Error -> {
-                        emit(StarWarsResult.Error(result.exception))
+                        emit(StarWarsResult.Error(exception))
                     }
 
                     else -> {}
                 }
-            }.onFlowStarts()
+            }
+        }.onFlowStarts()
+
+    override suspend fun getSpecies(specieUrl: List<String>): Flow<StarWarsResult<List<SpecieModel>>> =
+        flow {
+            starWarsDataSource.getSpecies(specieUrl).run {
+                when (this) {
+                    is StarWarsResult.Success -> {
+                        emit(StarWarsResult.Success(data.map { specie -> specie!!.mapToDomainModel() }))
+                    }
+                    is StarWarsResult.Error -> {
+                        emit(StarWarsResult.Error(exception))
+                    }
+
+                    else -> {}
+                }
+            }
+        }.onFlowStarts()
+
+    override suspend fun getMovies(movieUrl: List<String>): Flow<StarWarsResult<List<MovieModel>>> =
+        flow {
+            when (val result = starWarsDataSource.getMovies(movieUrl)) {
+                is StarWarsResult.Success -> {
+                    emit(StarWarsResult.Success(result.data.map { movie -> movie!!.mapToDomainModel() }))
+                }
+                is StarWarsResult.Error -> {
+                    emit(StarWarsResult.Error(result.exception))
+                }
+
+                else -> {}
+            }
+        }.onFlowStarts()
 }

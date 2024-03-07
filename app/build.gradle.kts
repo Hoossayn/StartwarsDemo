@@ -4,7 +4,10 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
     id("org.jetbrains.kotlin.plugin.parcelize")
     id("com.google.dagger.hilt.android")
+    id("com.diffplug.spotless")
 }
+apply(from = "$rootDir/spotless.gradle")
+
 
 android {
     namespace = "com.example.startwarsdemo"

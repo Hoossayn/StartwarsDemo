@@ -19,7 +19,7 @@ import javax.inject.Inject
 class CharactersDetailsViewModel @Inject constructor(
     private val getMovieUseCase: GetMoviesUseCase,
     private val getPlanetUseCase: GetPlanetUseCase,
-    private val getSpecieUseCase: GetSpeciesUseCase
+    private val getSpecieUseCase: GetSpeciesUseCase,
 ) : ViewModel() {
 
     private val _resultMovie = MutableStateFlow<StarWarsResult<List<MovieModel>>>(StarWarsResult.Loading)

@@ -1,6 +1,5 @@
 package com.example.startwarsdemo.repository
 
-
 import com.example.startwarsdemo.data.common.StarWarsResult
 import com.example.startwarsdemo.datasource.StarWarsDataSourceImplTest
 import com.example.startwarsdemo.domain.models.CharacterModel
@@ -16,7 +15,7 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
     StarWarsRepository {
     override suspend fun searchCharacters(input: String): Flow<StarWarsResult<List<CharacterModel>>> {
         return flow {
-            starWarsDataSourceImplTest.searchCharacters(input).run {
+            starWarsDataSourceImplTest.searchCharacters().run {
                 when (this) {
                     is StarWarsResult.Success -> {
                         data?.let { emit(StarWarsResult.Success(it.map { character -> character.mapToDomainModel() })) }
@@ -33,7 +32,7 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
 
     override suspend fun getPlanet(planetUrl: String): Flow<StarWarsResult<PlanetModel>> {
         return flow {
-            starWarsDataSourceImplTest.getPlanet(planetUrl).run {
+            starWarsDataSourceImplTest.getPlanet().run {
                 when (this) {
                     is StarWarsResult.Success -> {
                         data?.let { emit(StarWarsResult.Success(it.mapToDomainModel())) }
@@ -52,18 +51,18 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
         return flow<StarWarsResult<List<SpecieModel>>> {
             val resultList = mutableListOf<SpecieModel>()
 
-            starWarsDataSourceImplTest.getSpecies(specieUrl).run {
+            starWarsDataSourceImplTest.getSpecies().run {
                 when (this) {
                     is StarWarsResult.Success -> {
-
                         data.let { responseList ->
                             responseList.forEach {
-                            if (it != null) {
-                                resultList.addAll(listOf(it.mapToDomainModel()))
+                                if (it != null) {
+                                    resultList.addAll(listOf(it.mapToDomainModel()))
+                                }
                             }
-                        } }
+                        }
 
-                         emit(StarWarsResult.Success(resultList))
+                        emit(StarWarsResult.Success(resultList))
                     }
                     is StarWarsResult.Error -> {
                         emit(StarWarsResult.Error(exception))
@@ -79,16 +78,17 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
         return flow<StarWarsResult<List<MovieModel>>> {
             val resultList = mutableListOf<MovieModel>()
 
-            starWarsDataSourceImplTest.getMovies(movieUrl).run {
+            starWarsDataSourceImplTest.getMovies().run {
                 when (this) {
                     is StarWarsResult.Success -> {
                         data.let { it ->
                             it.forEach {
-                            if (it != null) {
-                                resultList.addAll(listOf(it.mapToDomainModel()))
-                               // it.mapToDomainModel()
+                                if (it != null) {
+                                    resultList.addAll(listOf(it.mapToDomainModel()))
+                                    // it.mapToDomainModel()
+                                }
                             }
-                        } }
+                        }
 
                         emit(StarWarsResult.Success(resultList))
                     }
@@ -101,5 +101,4 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
             }
         }.onStart { emit(StarWarsResult.Loading) }
     }
-
 }

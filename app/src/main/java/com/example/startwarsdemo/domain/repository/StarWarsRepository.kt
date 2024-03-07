@@ -1,6 +1,5 @@
 package com.example.startwarsdemo.domain.repository
 
-
 import com.example.startwarsdemo.data.common.StarWarsResult
 import com.example.startwarsdemo.domain.models.CharacterModel
 import com.example.startwarsdemo.domain.models.MovieModel

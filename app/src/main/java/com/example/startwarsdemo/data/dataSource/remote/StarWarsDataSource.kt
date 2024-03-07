@@ -6,7 +6,6 @@ import com.example.startwarsdemo.data.response.MovieResponse
 import com.example.startwarsdemo.data.response.PlanetResponse
 import com.example.startwarsdemo.data.response.SpecieResponse
 
-
 interface StarWarsDataSource {
     suspend fun searchCharacters(input: String): StarWarsResult<List<CharacterResponse>?>
     suspend fun getPlanet(planetUrl: String): StarWarsResult<PlanetResponse?>

@@ -25,7 +25,7 @@ import okhttp3.ResponseBody
 @AndroidEntryPoint
 class CharacterDetailsActivity : AppCompatActivity() {
 
-    private val viewModel : CharactersDetailsViewModel by viewModels()
+    private val viewModel: CharactersDetailsViewModel by viewModels()
 
     private lateinit var binding: ActivityCharacterDetailsBinding
 
@@ -49,7 +49,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
                     tvDetailsHeightValue.text = UNDEFINED
                 }
             }
-            getPlanet(getPlanetUrl())
+            getPlanet(this.homeWorld)
             getMovies(this)
             getSpecies(this)
         }
@@ -61,19 +61,18 @@ class CharacterDetailsActivity : AppCompatActivity() {
 
     private fun getSpecies(character: CharacterModel) {
         if (character.species.isNotEmpty()) {
-            viewModel.getSpecies(character.getSpeciesUrl())
+            viewModel.getSpecies(character.species)
         }
     }
 
     private fun getMovies(character: CharacterModel) {
         if (character.films.isNotEmpty()) {
-            viewModel.getMovies(character.getMoviesUrl())
+            viewModel.getMovies(character.films)
         }
     }
 
     private fun getExtraCharacter() =
         intent?.extras?.getParcelable(CHARACTER_EXTRA) as CharacterModel?
-
 
     private fun initObservers() {
         lifecycleScope.launchWhenStarted {
@@ -85,7 +84,6 @@ class CharacterDetailsActivity : AppCompatActivity() {
                         layoutManager = LinearLayoutManager(this@CharacterDetailsActivity)
                         adapter = MoviesAdapter(movies)
                     }
-
                 }.onError { error ->
                     showError(error)
                     binding.progressCircular.hide()
@@ -103,7 +101,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
                         getString(
                             R.string.population_value,
                             getExtraCharacter()?.name,
-                            planet.population
+                            planet.population,
                         )
                     binding.progressCircular.hide()
                 }.onError { error ->
@@ -115,7 +113,6 @@ class CharacterDetailsActivity : AppCompatActivity() {
             }
         }
 
-
         lifecycleScope.launchWhenStarted {
             viewModel.resultSpecie.collect {
                 it.onSuccess { species ->
@@ -125,7 +122,6 @@ class CharacterDetailsActivity : AppCompatActivity() {
                         layoutManager = LinearLayoutManager(this@CharacterDetailsActivity)
                         adapter = SpeciesAdapter(species)
                     }
-
                 }.onError { error ->
                     showError(error)
                     binding.progressCircular.hide()

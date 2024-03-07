@@ -16,7 +16,7 @@ import kotlin.math.floor
 import kotlin.math.roundToInt
 
 inline fun <reified VM : ViewModel> FragmentActivity.viewModelProvider(
-        provider: ViewModelProvider.Factory
+    provider: ViewModelProvider.Factory,
 ) = ViewModelProvider(this, provider).get(VM::class.java)
 
 /**
@@ -33,7 +33,6 @@ fun View.hide() {
     visibility = View.GONE
 }
 
-
 /**
  * extension function that takes a url string as http and return it with https instead
  */
@@ -47,7 +46,6 @@ fun String.convertUrlToHttps() = if (this.isNotEmpty()) {
  * extension function for the Toast class that takes a string
  */
 fun Context.toast(message: String) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-
 
 /**
  * extension function to convert cm to feet
@@ -67,13 +65,11 @@ fun String.convertCmToFeet(): String {
  */
 fun String.hasValue() = this != UNDEFINED
 
-
 /**
  * inline function to convert json string to a TypeToken generic type
  */
 inline fun <reified T> Gson.fromJsonToObjectType(json: String): T =
-        fromJson(json, object : TypeToken<T>() {}.type)
-
+    fromJson(json, object : TypeToken<T>() {}.type)
 
 /**
  * Listen to change on the edit text and return the value in a state flow
