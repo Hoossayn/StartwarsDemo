@@ -24,10 +24,10 @@ To build this project, you require:
 - Gradle 6.5 or higher 
 
 <h2 align="left">Screenshots</h2>
-<h4 align="center">
-<img src="https://res.cloudinary.com/diixxqjcx/image/upload/v1596748100/star_wars_recents.jpg" width="30%" vspace="10" hspace="10">
-<img src="https://res.cloudinary.com/diixxqjcx/image/upload/v1596748100/star_wars_search.png" width="30%" vspace="10" hspace="10">
-<img src="https://res.cloudinary.com/diixxqjcx/image/upload/v1596748100/star_wars_detail.jpg" width="30%" vspace="10" hspace="10"><br>
+<p align="center">
+  <img src="https://github.com/Hoossayn/StartwarsDemo/assets/35276272/c8b7a0e3-95ed-4b1e-97a7-2cb621541455" width="200">
+
+</p>
 
 ## Design
 Before taking any coding and architecture decisions, I first had to come up with an idea of how I wanted the app to look, and the kind of experience I wanted users to have when using the app. This also guided my decisions on what architecture and tools were best suited to bring about a good user experience. In addition to having a search screen and a detail screen, I think it'd be nice to have a search history screen where users can revisit any previously viewed character without having to search and wait for results.
