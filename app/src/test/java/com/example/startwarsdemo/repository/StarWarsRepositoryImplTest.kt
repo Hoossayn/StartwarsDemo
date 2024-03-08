@@ -15,7 +15,7 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
     StarWarsRepository {
     override suspend fun searchCharacters(input: String): Flow<StarWarsResult<List<CharacterModel>>> {
         return flow {
-            starWarsDataSourceImplTest.searchCharacters().run {
+            starWarsDataSourceImplTest.searchCharacters(input).run {
                 when (this) {
                     is StarWarsResult.Success -> {
                         data?.let { emit(StarWarsResult.Success(it.map { character -> character.mapToDomainModel() })) }
@@ -32,7 +32,7 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
 
     override suspend fun getPlanet(planetUrl: String): Flow<StarWarsResult<PlanetModel>> {
         return flow {
-            starWarsDataSourceImplTest.getPlanet().run {
+            starWarsDataSourceImplTest.getPlanet(planetUrl).run {
                 when (this) {
                     is StarWarsResult.Success -> {
                         data?.let { emit(StarWarsResult.Success(it.mapToDomainModel())) }
@@ -51,7 +51,7 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
         return flow<StarWarsResult<List<SpecieModel>>> {
             val resultList = mutableListOf<SpecieModel>()
 
-            starWarsDataSourceImplTest.getSpecies().run {
+            starWarsDataSourceImplTest.getSpecies(specieUrl).run {
                 when (this) {
                     is StarWarsResult.Success -> {
                         data.let { responseList ->
@@ -78,14 +78,13 @@ class StarWarsRepositoryImplTest(private val starWarsDataSourceImplTest: StarWar
         return flow<StarWarsResult<List<MovieModel>>> {
             val resultList = mutableListOf<MovieModel>()
 
-            starWarsDataSourceImplTest.getMovies().run {
+            starWarsDataSourceImplTest.getMovies(movieUrl).run {
                 when (this) {
                     is StarWarsResult.Success -> {
                         data.let { it ->
                             it.forEach {
                                 if (it != null) {
                                     resultList.addAll(listOf(it.mapToDomainModel()))
-                                    // it.mapToDomainModel()
                                 }
                             }
                         }

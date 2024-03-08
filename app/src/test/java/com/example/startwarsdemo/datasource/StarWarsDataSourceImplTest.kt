@@ -1,17 +1,17 @@
 package com.example.startwarsdemo.datasource
 
+import com.example.startwarsdemo.R
 import com.example.startwarsdemo.data.common.DataSourceException
 import com.example.startwarsdemo.data.common.StarWarsResult
 import com.example.startwarsdemo.data.dataSource.remote.StarWarsDataSource
 import com.example.startwarsdemo.data.response.CharacterResponse
 import com.example.startwarsdemo.data.response.ListCharacterResponse
+import com.example.startwarsdemo.data.response.MovieResponse
 import com.example.startwarsdemo.data.response.PlanetResponse
 import com.example.startwarsdemo.data.response.SpecieResponse
+import com.example.startwarsdemo.helpers.getJson
 import com.example.startwarsdemo.utils.fromJsonToObjectType
 import com.google.gson.Gson
-import com.example.startwarsdemo.R
-import com.example.startwarsdemo.data.response.MovieResponse
-import com.example.startwarsdemo.helpers.getJson
 
 class StarWarsDataSourceImplTest : StarWarsDataSource {
 
@@ -54,6 +54,4 @@ class StarWarsDataSourceImplTest : StarWarsDataSource {
             StarWarsResult.Error(DataSourceException.Unexpected(R.string.error_unexpected_message))
         }
     }
-
-
 }

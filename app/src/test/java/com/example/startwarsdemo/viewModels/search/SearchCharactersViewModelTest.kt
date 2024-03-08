@@ -3,13 +3,13 @@ package com.example.startwarsdemo.viewModels.search
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.startwarsdemo.data.common.onError
 import com.example.startwarsdemo.data.common.onSuccess
-import com.example.startwarsdemo.domain.usecases.SearchCharactersUseCase
-import com.example.startwarsdemo.ui.search.SearchCharactersViewModel
-import com.google.common.truth.Truth.assertThat
 import com.example.startwarsdemo.datasource.StarWarsDataSourceImplTest
+import com.example.startwarsdemo.domain.usecases.SearchCharactersUseCase
 import com.example.startwarsdemo.helpers.MainCoroutineRule
 import com.example.startwarsdemo.helpers.runBlockingTest
 import com.example.startwarsdemo.repository.StarWarsRepositoryImplTest
+import com.example.startwarsdemo.ui.search.SearchCharactersViewModel
+import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Rule
@@ -34,9 +34,9 @@ class SearchCharactersViewModelTest {
         viewModel = SearchCharactersViewModel(
             SearchCharactersUseCase(
                 StarWarsRepositoryImplTest(
-                    StarWarsDataSourceImplTest()
-                )
-            )
+                    StarWarsDataSourceImplTest(),
+                ),
+            ),
         )
     }
 
@@ -52,6 +52,5 @@ class SearchCharactersViewModelTest {
         }.onError { error ->
             assertThat(error).isNull()
         }
-
     }
 }
