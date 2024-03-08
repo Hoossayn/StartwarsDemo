@@ -4,11 +4,14 @@ In this project I tried showcasing how to build an Android Application with clea
 
 This side Project was initially a case study given to me as a challenge for an android role.
 
+You can check out my thought process in this [file](https://github.com/Hoossayn/StartwarsDemo/blob/main/process.md)
+
+</br>
 
 # Screenshots
 <p align="center">
   <img src="https://github.com/Hoossayn/StartwarsDemo/assets/35276272/c8b7a0e3-95ed-4b1e-97a7-2cb621541455" width="200">
-  
+
 </p>
 
 
@@ -52,7 +55,10 @@ Libraries Used
 * [Truth](https://github.com/google/truth) - Makes your test assertions and failure messages more readable
 
 
-# To be added
-* animations
+# Nice to have 
+* show search history in search screen
+* extract folders to thier own modules
+* ci - github action
+* ui test 
 
 <br />
