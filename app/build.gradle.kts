@@ -53,8 +53,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     implementation ("androidx.fragment:fragment-ktx:1.6.2")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
 
     //Retrofit2
@@ -62,18 +62,18 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Okhttp3
-    implementation ("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.12.0")
 
     //Gson
-    implementation ("com.google.code.gson:gson:2.8.6")
+    implementation ("com.google.code.gson:gson:2.10.1")
 
     //Dagger
-    implementation ("com.google.dagger:hilt-android:2.48")
+    implementation ("com.google.dagger:hilt-android:2.48.1")
     kapt ("com.google.dagger:hilt-android-compiler:2.48")
 
     //Coroutines
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
     //Stetho
     implementation ("com.facebook.stetho:stetho:1.5.1")
@@ -82,13 +82,13 @@ dependencies {
     debugImplementation ("com.squareup.leakcanary:leakcanary-android:2.13")
 
     //TEST SUITE
-    androidTestImplementation ("androidx.test:runner:1.2.0")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.2")
+    androidTestImplementation ("androidx.test:runner:1.5.2")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
 
-    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+    testImplementation ("androidx.arch.core:core-testing:2.2.0")
     testImplementation ("junit:junit:4.13.2")
     testImplementation ("com.google.truth:truth:1.0")
-    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
 
 }
