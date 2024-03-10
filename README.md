@@ -50,7 +50,7 @@ Libraries Used
 * [Retrofit2](https://square.github.io/retrofit/)- networking
 * [Gson](https://github.com/google/gson) - JSON Parser
 * [Dagger-hilt](https://dagger.dev/hilt/) - dependency injector
-* [Stetho](http://facebook.github.io/stetho/) - debug bridge
+* [Spotless](https://github.com/diffplug/spotless) - code formatter
 * [Junit](https://junit.org/junit4/) - unit tests
 * [Truth](https://github.com/google/truth) - Makes your test assertions and failure messages more readable
 
