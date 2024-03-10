@@ -35,7 +35,7 @@ As seen in the images of the app [above](#Design), the app launches into the sea
 
 Typing text into the search bar transitions the user into a `searching state` which leads to either a loaded search results state, empty or error state.
 
-Seeing that the app requires a lot of state handling, I opted to use the `Model-View-Intent` architecture for the presentation layer of the app. This will be discussed in-depth in the section below.
+Seeing that the app requires a lot of state handling, I opted to use the `Model-View-ViewModel` architecture for the presentation layer of the app. This will be discussed in-depth in the section below.
 
 ## Architecture
 
@@ -48,7 +48,6 @@ It enforces separation of concerns and dependency inversion, where higher and lo
 - Di
 
 The cache and remote layers are implementation details that can be provided in any form (Firebase, GraphQl server, REST, ROOM, SQLDelight, etc) as long as it conforms to the business rules / contracts defined in the data layer which in turn also conforms to contracts defined in domain.
-The project has one feature module `character_search` that holds the UI code and presents data to the users. The main app module does nothing more than just tying all the layers of our app together.
 
 For dependency injection and asynchronous programming, the project uses Dagger Hilt and Coroutines with Flow. Dagger Hilt is a fine abstraction over the vanilla dagger boilerplate, and is easy to setup. Coroutines and Flow brings kotlin's expressibility and conciseness to asynchronous programming, along with a fine suite of operators that make it a robust solution.
 
